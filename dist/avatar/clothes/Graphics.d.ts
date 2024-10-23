@@ -1,53 +1,49 @@
-import * as React from 'react';
-export interface Props {
+export interface GraphicsProps {
     maskID: string;
 }
-export declare class Skull extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class SkullOutline extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Bat extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Cumbia extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Deer extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Diamond extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Hola extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Selena extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Pizza extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Resist extends React.Component<Props> {
-    static optionValue: string;
-    render(): JSX.Element;
-}
-export declare class Bear extends React.Component<Props> {
-    static optionValue: string;
-    private mask1;
-    private path1;
-    render(): JSX.Element;
-}
-export default class Graphics extends React.Component<Props> {
-    render(): JSX.Element;
-}
+export declare const Skull: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const SkullOutline: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Bat: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Cumbia: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Deer: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Diamond: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Hola: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Selena: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Pizza: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Resist: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export declare const Bear: {
+    ({ maskID }: GraphicsProps): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+declare const Graphics: ({ maskID }: GraphicsProps) => import("react/jsx-runtime").JSX.Element;
+export default Graphics;

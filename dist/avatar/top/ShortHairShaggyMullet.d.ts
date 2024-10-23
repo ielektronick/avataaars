@@ -1,10 +1,6 @@
-import * as React from 'react';
-export default class ShortHairShaggyMullet extends React.Component {
-    static optionValue: string;
-    private mask1;
-    private mask2;
-    private path1;
-    private path2;
-    private path3;
-    render(): JSX.Element;
-}
+import { type PropsWithChildren } from 'react';
+declare const ShortHairShaggyMullet: {
+    ({ children }: PropsWithChildren<unknown>): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export default ShortHairShaggyMullet;

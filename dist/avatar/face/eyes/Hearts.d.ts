@@ -1,5 +1,5 @@
-import * as React from 'react';
-export default class Hearts extends React.Component {
-    static optionValue: string;
-    render(): JSX.Element;
-}
+declare const Hearts: {
+    (): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export default Hearts;

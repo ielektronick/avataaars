@@ -1,9 +1,6 @@
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
-import { OptionContext } from './options';
 export { default as Avatar, AvatarStyle } from './avatar';
-export { Option, OptionContext, allOptions } from './options';
-export interface Props {
+export { Option, allOptions } from './options';
+export interface AvatarComponentProps {
     avatarStyle: string;
     className?: string;
     style?: React.CSSProperties;
@@ -23,29 +20,6 @@ export interface Props {
     pieceSize?: string;
     viewBox?: string;
 }
-export default class AvatarComponent extends React.Component<Props> {
-    static childContextTypes: {
-        optionContext: PropTypes.Requireable<OptionContext>;
-    };
-    private optionContext;
-    getChildContext(): {
-        optionContext: OptionContext;
-    };
-    UNSAFE_componentWillMount(): void;
-    UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    render(): JSX.Element;
-    private updateOptionContext;
-}
-export declare class Piece extends React.Component<Props> {
-    static childContextTypes: {
-        optionContext: PropTypes.Requireable<OptionContext>;
-    };
-    private optionContext;
-    getChildContext(): {
-        optionContext: OptionContext;
-    };
-    UNSAFE_componentWillMount(): void;
-    UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    render(): JSX.Element;
-    private updateOptionContext;
-}
+export declare const AvatarComponent: (props: AvatarComponentProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Piece: (props: AvatarComponentProps) => import("react/jsx-runtime").JSX.Element;
+export default AvatarComponent;

@@ -1,7 +1,5 @@
-import * as React from 'react';
-export default class MoustacheFancy extends React.Component {
-    static optionValue: string;
-    private mask1;
-    private path1;
-    render(): JSX.Element;
-}
+declare const MoustacheFancy: {
+    (): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export default MoustacheFancy;

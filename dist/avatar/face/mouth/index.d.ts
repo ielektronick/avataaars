@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class Mouth extends React.Component {
-    render(): JSX.Element;
-}
+declare const Mouth: () => import("react/jsx-runtime").JSX.Element;
+export default Mouth;

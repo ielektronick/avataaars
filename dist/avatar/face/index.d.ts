@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class Face extends React.Component {
-    render(): JSX.Element;
-}
+declare const Face: () => import("react/jsx-runtime").JSX.Element;
+export default Face;

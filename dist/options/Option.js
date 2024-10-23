@@ -1,25 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Option = /** @class */ (function () {
-    function Option(_a) {
-        var key = _a.key, label = _a.label;
+export default class Option {
+    _key;
+    _label;
+    get key() {
+        return this._key;
+    }
+    get label() {
+        return this._label;
+    }
+    constructor({ key, label }) {
         this._key = key;
         this._label = label;
     }
-    Object.defineProperty(Option.prototype, "key", {
-        get: function () {
-            return this._key;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Option.prototype, "label", {
-        get: function () {
-            return this._label;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Option;
-}());
-exports.default = Option;
+}
+//# sourceMappingURL=Option.js.map
