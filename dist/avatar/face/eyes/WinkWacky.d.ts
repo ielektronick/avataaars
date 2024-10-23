@@ -1,5 +1,5 @@
-import * as React from 'react';
-export default class WinkWacky extends React.Component {
-    static optionValue: string;
-    render(): JSX.Element;
-}
+declare const WinkWacky: {
+    (): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export default WinkWacky;

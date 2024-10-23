@@ -1,5 +1,5 @@
-import * as React from 'react';
-export default class Dizzy extends React.Component {
-    static optionValue: string;
-    render(): JSX.Element;
-}
+declare const Dizzy: {
+    (): import("react/jsx-runtime").JSX.Element;
+    optionValue: string;
+};
+export default Dizzy;

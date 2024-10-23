@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class Accessories extends React.Component {
-    render(): JSX.Element;
-}
+declare const Accessories: () => import("react/jsx-runtime").JSX.Element;
+export default Accessories;

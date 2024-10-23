@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class FacialHair extends React.Component {
-    render(): JSX.Element;
-}
+declare const FacialHair: () => import("react/jsx-runtime").JSX.Element;
+export default FacialHair;

@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class Eyebrow extends React.Component {
-    render(): JSX.Element;
-}
+declare const Eyebrow: () => import("react/jsx-runtime").JSX.Element;
+export default Eyebrow;

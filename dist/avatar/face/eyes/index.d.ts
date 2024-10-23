@@ -1,4 +1,2 @@
-import * as React from 'react';
-export default class Eyes extends React.Component {
-    render(): JSX.Element;
-}
+declare const Eyes: () => import("react/jsx-runtime").JSX.Element;
+export default Eyes;
