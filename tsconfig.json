@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
@@ -11,15 +11,14 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "declaration": true,
+    "isolatedModules": true,
+    "sourceMap": true,
     "newLine": "lf",
     "outDir": "./dist",
-    "lib": [
-      "es6",
-      "dom"
-    ]
+    "lib": ["es6", "dom"],
+    "paths": {
+      "@utils": ["./src/utils"]
+    }
   },
-  "types": [
-    "jest",
-    "node"
-  ]
+  "types": ["node"]
 }

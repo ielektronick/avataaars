@@ -1,87 +1,47 @@
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import {
+    Children,
+    Fragment,
+    type ReactNode,
+    useContext,
+    useMemo,
+    type PropsWithChildren,
+    type ComponentType,
+} from 'react';
+import Option from './Option';
+import { AvatarContext } from './AvatarContext';
 
-import Option from './Option'
-import OptionContext from './OptionContext'
-
-function getComponentOptionValue (component: React.ComponentClass) {
-  const optionValue = (component as any).optionValue
-  if (!optionValue) {
-    throw new Error(`optionValue should be provided for ${component}`)
-  }
-  return optionValue
+function getComponentOptionValue(component: React.ComponentClass) {
+    const optionValue = (component as any).optionValue;
+    if (!optionValue) {
+        throw new Error(`optionValue should be provided for ${component}`);
+    }
+    return optionValue;
 }
 
-export interface Props {
-  option: Option
-  defaultOption: React.ComponentClass | string
+export interface SelectorProps {
+    option: Option;
+    defaultOption: ComponentType | string;
 }
 
-export default class Selector extends React.Component<Props> {
-  static contextTypes = {
-    optionContext: PropTypes.instanceOf(OptionContext)
-  }
+const Selector = ({ defaultOption, option, children }: PropsWithChildren<SelectorProps>) => {
+    const avatarContext = useContext(AvatarContext);
+    const getSelectedOption = (): ReactNode => {
+        const selectedOptionType =
+            avatarContext[option.key] ?? (typeof defaultOption === 'string' ? defaultOption : defaultOption.name);
+        let result: ReactNode;
 
-  private get optionContext (): OptionContext {
-    return this.context.optionContext
-  }
+        Children.forEach(children, (child) => {
+            if (getComponentOptionValue((child as any).type) === selectedOptionType) {
+                result = child;
+            }
+        });
 
-  UNSAFE_componentWillMount () {
-    const { option, defaultOption } = this.props
-    const { optionContext } = this
-    const defaultValue = (
-      typeof defaultOption === 'string' ?
-      defaultOption : getComponentOptionValue(defaultOption)
-    )
-    optionContext.addStateChangeListener(this.optionContextUpdate)
-    optionContext.optionEnter(option.key)
-    const optionState = optionContext.getOptionState(option.key)
-    this.updateOptionValues()
-    if (optionState) {
-      optionContext.setDefaultValue(option.key, defaultValue)
-    }
-  }
+        return result ?? <Fragment />;
+    };
 
-  UNSAFE_componentWillUpdate (nextProps: Props & { children?: React.ReactNode }) {
-    this.updateOptionValues(nextProps)
-  }
+    const selectedOption = useMemo(() => getSelectedOption(), [avatarContext]);
 
-  componentWillUnmount () {
-    this.optionContext.removeStateChangeListener(this.optionContextUpdate)
-    this.optionContext.optionExit(this.props.option.key)
-  }
+    return selectedOption;
+};
 
-  render () {
-    let result: React.ReactNode | null = null
-    const { option, children } = this.props
-    const value = this.optionContext.getValue(option.key)!
-    React.Children.forEach(children, child => {
-      if (getComponentOptionValue((child as any).type) === value) {
-        result = child
-      }
-    })
-    return result
-  }
-
-  private optionContextUpdate = () => {
-    this.forceUpdate()
-  }
-
-  private updateOptionValues (
-    nextProps?: Props & { children?: React.ReactNode }
-  ) {
-    if (nextProps && this.props.children === nextProps.children) {
-      return
-    }
-    const { option, children } = this.props
-    const values = React.Children.map(
-      children,
-      // TODO: also validate and throw error if we don't see optionValue
-      child => getComponentOptionValue((child as any).type)
-    )
-    if (new Set(values).size !== values?.length) {
-      throw new Error('Duplicate values')
-    }
-    this.optionContext.setOptions(option.key, values)
-  }
-}
+export default Selector;
